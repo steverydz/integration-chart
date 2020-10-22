@@ -67,15 +67,15 @@ function buildChart(data) {
     .attr("stroke", "#e5e5e5")
     .attr("stroke-width", 1);
 
-  // middle section
-  const middleSection = bounds.append("g");
-
   bounds
     .append("circle")
     .attr("cx", 119)
     .attr("cy", dimensions.height / 2)
     .attr("r", 6)
     .attr("fill", "#cdcdcd");
+
+  // middle section
+  const middleSection = bounds.append("g");
 
   middleSection
     .append("text")
@@ -122,6 +122,13 @@ function buildChart(data) {
     .attr("fill", "url(#imageTwo)")
     .attr("stroke", "#e5e5e5")
     .attr("stroke-width", 1);
+
+  bounds
+    .append("circle")
+    .attr("cx", dimensions.width - 60 - 59)
+    .attr("cy", dimensions.height / 2)
+    .attr("r", 6)
+    .attr("fill", "#cdcdcd");
 }
 
 buildChart(data);
