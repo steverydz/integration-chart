@@ -1,5 +1,11 @@
 const data = {
-  groups: [["websso-trusted-dashboard", "identity-service", "keystone"]],
+  groups: [
+    ["websso-trusted-dashboard", "identity-service", "keystone"],
+    ["websso-trusted-dashboard", "identity-service", "keystone"],
+    ["websso-trusted-dashboard", "identity-service", "keystone"],
+    ["websso-trusted-dashboard", "identity-service", "keystone"],
+    ["websso-trusted-dashboard", "identity-service", "keystone"],
+  ],
   packageOne: {
     name: "openstack-dashboard",
     iconPath:
@@ -68,41 +74,19 @@ function buildChart(data) {
     .attr("stroke-width", 1);
 
   bounds
+    .selectAll(".left-node")
+    .data(data.groups)
+    .enter()
     .append("circle")
+    .attr("class", "node")
     .attr("cx", 119)
-    .attr("cy", dimensions.height / 2)
+    // .attr("cy", dimensions.height / 2)
+    .attr("cy", (d, i) => {
+      console.log("a", 120 / data.groups.length);
+      return dimensions.height / 2 - (120 / data.groups.length) * i + 1;
+    })
     .attr("r", 6)
     .attr("fill", "#cdcdcd");
-
-  // middle section
-  const middleSection = bounds.append("g");
-
-  middleSection
-    .append("text")
-    .attr("x", 160)
-    .attr("y", dimensions.height / 2)
-    .attr("font-family", "sans-serif")
-    .attr("font-size", "16px")
-    .attr("fill", "#111111")
-    .text(data.groups[0][0]);
-
-  middleSection
-    .append("text")
-    .attr("x", dimensions.width / 2 - 60)
-    .attr("y", dimensions.height / 2)
-    .attr("font-family", "sans-serif")
-    .attr("font-size", "16px")
-    .attr("fill", "#111111")
-    .text(data.groups[0][1]);
-
-  middleSection
-    .append("text")
-    .attr("x", dimensions.width - 220)
-    .attr("y", dimensions.height / 2)
-    .attr("font-family", "sans-serif")
-    .attr("font-size", "16px")
-    .attr("fill", "#111111")
-    .text(data.groups[0][2]);
 
   // right icon circle
   bounds
@@ -124,7 +108,11 @@ function buildChart(data) {
     .attr("stroke-width", 1);
 
   bounds
+    .selectAll(".right-node")
+    .data(data.groups)
+    .enter()
     .append("circle")
+    .attr("class", "node")
     .attr("cx", dimensions.width - 60 - 59)
     .attr("cy", dimensions.height / 2)
     .attr("r", 6)
