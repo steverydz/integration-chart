@@ -25,6 +25,7 @@ function buildChart(data) {
   const iconContainerRadius = 60;
   const iconRadius = 35;
   const nodeRadius = 6;
+  const nodeWidth = nodeRadius * 2;
 
   const wrapper = d3.select("#wrapper");
   const svg = wrapper.append("svg");
@@ -77,13 +78,11 @@ function buildChart(data) {
     .attr("stroke-width", 1);
 
   // left icon circle nodes
-  const originX = iconContainerRadius + nodeRadius;
-  const originY = chartHeight / 2 + nodeRadius;
+  const leftOriginX = iconContainerRadius + nodeRadius;
+  const leftOriginY = chartHeight / 2 + nodeRadius;
 
-  const leftNodeOriginX = originX + iconContainerRadius * Math.sin(0);
-  const leftNodeOriginY = originY - iconContainerRadius * Math.cos(0);
-
-  const leftNodeWidth = nodeRadius * 2;
+  const leftNodeOriginX = leftOriginX + iconContainerRadius * Math.sin(0);
+  const leftNodeOriginY = leftOriginY - iconContainerRadius * Math.cos(0);
 
   bounds
     .selectAll(".left-node")
@@ -91,15 +90,15 @@ function buildChart(data) {
     .enter()
     .append("circle")
     .attr("class", "left-node")
-    .attr("cx", leftNodeOriginX - leftNodeWidth / 2)
-    .attr("cy", leftNodeOriginY - leftNodeWidth / 2)
+    .attr("cx", leftNodeOriginX - nodeWidth / 2)
+    .attr("cy", leftNodeOriginY - nodeWidth / 2)
     .attr("r", nodeRadius)
-    .attr("width", leftNodeWidth)
-    .attr("height", leftNodeWidth)
+    .attr("width", nodeWidth)
+    .attr("height", nodeWidth)
     .attr("fill", "#cdcdcd")
     .attr("transform", (d, i) => {
-      return `rotate(${0 + i * nodeRadius * 4}, ${originX - nodeRadius}, ${
-        originY - nodeRadius
+      return `rotate(${0 + i * nodeRadius * 4}, ${leftOriginX - nodeRadius}, ${
+        leftOriginY - nodeRadius
       })`;
     });
 
