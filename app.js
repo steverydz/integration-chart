@@ -110,11 +110,11 @@ function buildChart(data) {
 
   // left node connecting lines
   bounds
-    .selectAll(".node-line")
+    .selectAll(".left-node-line")
     .data(data.groups)
     .enter()
     .append("path")
-    .attr("class", "node-line")
+    .attr("class", "left-node-line")
     .attr(
       "d",
       `M ${iconContainerRadius * 2} ${chartHeight / 2} L ${
@@ -174,6 +174,29 @@ function buildChart(data) {
       const angle = 102 - nodeWidth * data.groups.length;
 
       return `rotate(-${angle + i * nodeRadius * 4}, ${
+        rightOriginX - nodeRadius
+      }, ${rightOriginY - nodeRadius})`;
+    });
+
+  // right node connecting lines
+  bounds
+    .selectAll(".right-node-line")
+    .data(data.groups)
+    .enter()
+    .append("path")
+    .attr("class", "right-node-line")
+    .attr(
+      "d",
+      `M ${chartWidth - iconContainerRadius * 2} ${chartHeight / 2} L ${
+        chartWidth - iconContainerRadius * 4
+      } ${chartHeight / 2}`
+    )
+    .attr("stroke", "#cdcdcd")
+    .attr("stroke-width", "1")
+    .attr("transform", (d, i) => {
+      const angle = 12 - nodeWidth * data.groups.length;
+
+      return `rotate(${angle + i * nodeRadius * 4}, ${
         rightOriginX - nodeRadius
       }, ${rightOriginY - nodeRadius})`;
     });
