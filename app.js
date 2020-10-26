@@ -126,6 +126,34 @@ function buildChart(data) {
     .attr("fill", "url(#imageTwo)")
     .attr("stroke", "#e5e5e5")
     .attr("stroke-width", 1);
+
+  // right icon circle nodes
+  const rightOriginX =
+    iconContainerRadius + nodeRadius + chartWidth - iconContainerRadius * 2;
+  const rightOriginY = chartHeight / 2 + nodeRadius;
+
+  const rightNodeOriginX = rightOriginX + iconContainerRadius * Math.sin(0);
+  const rightNodeOriginY = rightOriginY - iconContainerRadius * Math.cos(0);
+
+  bounds
+    .selectAll(".right-node")
+    .data(data.groups)
+    .enter()
+    .append("circle")
+    .attr("class", "right-node")
+    .attr("cx", rightNodeOriginX - nodeWidth / 2)
+    .attr("cy", rightNodeOriginY - nodeWidth / 2)
+    .attr("r", nodeRadius)
+    .attr("width", nodeWidth)
+    .attr("height", nodeWidth)
+    .attr("fill", "#cdcdcd")
+    .attr("transform", (d, i) => {
+      const angle = 102 - nodeWidth * data.groups.length;
+
+      return `rotate(-${angle + i * nodeRadius * 4}, ${
+        rightOriginX - nodeRadius
+      }, ${rightOriginY - nodeRadius})`;
+    });
 }
 
 buildChart(data);
