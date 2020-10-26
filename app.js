@@ -200,6 +200,14 @@ function buildChart(data) {
         rightOriginX - nodeRadius
       }, ${rightOriginY - nodeRadius})`;
     });
+
+  bounds
+    .append("rect")
+    .attr("width", chartWidth - iconContainerRadius * 5)
+    .attr("height", chartHeight)
+    .attr("x", iconContainerRadius * 2.5)
+    .attr("y", 0)
+    .attr("fill", "#ffffff");
 }
 
 buildChart(data);
