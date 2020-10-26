@@ -81,7 +81,6 @@ function buildChart(data) {
     .attr("class", "node")
     .attr("cx", 119)
     .attr("cy", (d, i) => {
-      console.log("a", 120 / data.groups.length);
       return dimensions.height / 2 - (120 / data.groups.length) * i + 1;
     })
     .attr("r", 6)
