@@ -73,18 +73,31 @@ function buildChart(data) {
     .attr("stroke", "#e5e5e5")
     .attr("stroke-width", 1);
 
+  // left icon circle nodes
+  const originX = 120;
+  const originY = 120;
+  const outerCircleRadius = 60;
+
+  const leftNodeOriginX = originX + outerCircleRadius * Math.sin(0);
+  const leftNodeOriginY = originY - outerCircleRadius * Math.cos(0);
+
+  const leftNodeWidth = 12;
+
   bounds
     .selectAll(".left-node")
     .data(data.groups)
     .enter()
     .append("circle")
-    .attr("class", "node")
-    .attr("cx", 119)
-    .attr("cy", (d, i) => {
-      return dimensions.height / 2 - (120 / data.groups.length) * i + 1;
-    })
+    .attr("class", "left-node")
+    .attr("cx", leftNodeOriginX - leftNodeWidth / 2)
+    .attr("cy", leftNodeOriginY - leftNodeWidth / 2)
     .attr("r", 6)
-    .attr("fill", "#cdcdcd");
+    .attr("width", leftNodeWidth)
+    .attr("height", leftNodeWidth)
+    .attr("fill", "#cdcdcd")
+    .attr("transform", (d, i) => {
+      return `rotate(${0 + i * 25}, 120, 120)`;
+    });
 
   // right icon circle
   bounds
