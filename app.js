@@ -99,7 +99,7 @@ function buildChart(data) {
     .attr("height", leftNodeWidth)
     .attr("fill", "#cdcdcd")
     .attr("transform", (d, i) => {
-      return `rotate(${0 + i * 20}, ${originX - nodeRadius}, ${
+      return `rotate(${0 + i * nodeRadius * 4}, ${originX - nodeRadius}, ${
         originY - nodeRadius
       })`;
     });
