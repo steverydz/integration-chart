@@ -74,8 +74,8 @@ function buildChart(data) {
     .attr("stroke-width", 1);
 
   // left icon circle nodes
-  const originX = 120;
-  const originY = 120;
+  const originX = 53;
+  const originY = dimensions.height / 2;
   const outerCircleRadius = 60;
 
   const leftNodeOriginX = originX + outerCircleRadius * Math.sin(0);
@@ -96,7 +96,7 @@ function buildChart(data) {
     .attr("height", leftNodeWidth)
     .attr("fill", "#cdcdcd")
     .attr("transform", (d, i) => {
-      return `rotate(${0 + i * 25}, 120, 120)`;
+      return `rotate(${0 + i * 20}, ${originX}, ${originY})`;
     });
 
   // right icon circle
