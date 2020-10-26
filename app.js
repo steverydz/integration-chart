@@ -18,7 +18,7 @@ const data = {
 };
 
 function buildChart(data) {
-  const chartWidth = 940;
+  const chartWidth = window.innerWidth * 0.8;
   const chartHeight = 600;
   const iconWidth = 70;
   const iconHeight = 70;
@@ -30,7 +30,11 @@ function buildChart(data) {
   const wrapper = d3.select("#wrapper");
   const svg = wrapper.append("svg");
 
-  svg.attr("width", chartWidth).attr("height", chartHeight);
+  svg
+    .attr("width", chartWidth)
+    .attr("height", chartHeight)
+    .attr("class", "integration-chart")
+    .attr("style", "display: block; margin: 0 auto");
 
   const defs = svg.append("defs");
 
