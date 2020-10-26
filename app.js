@@ -80,7 +80,6 @@ function buildChart(data) {
     .append("circle")
     .attr("class", "node")
     .attr("cx", 119)
-    // .attr("cy", dimensions.height / 2)
     .attr("cy", (d, i) => {
       console.log("a", 120 / data.groups.length);
       return dimensions.height / 2 - (120 / data.groups.length) * i + 1;
