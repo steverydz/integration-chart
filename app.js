@@ -18,20 +18,18 @@ const data = {
 };
 
 function buildChart(data) {
-  const wrapper = d3.select("#wrapper");
-  const svg = wrapper.append("svg");
-
-  const dimensions = {
-    width: 940,
-    height: 600,
-  };
-
+  const chartWidth = 940;
+  const chartHeight = 600;
   const iconWidth = 70;
   const iconHeight = 70;
   const iconContainerRadius = 60;
   const iconRadius = 35;
+  const nodeRadius = 6;
 
-  svg.attr("width", dimensions.width).attr("height", dimensions.height);
+  const wrapper = d3.select("#wrapper");
+  const svg = wrapper.append("svg");
+
+  svg.attr("width", chartWidth).attr("height", chartHeight);
 
   const defs = svg.append("defs");
 
@@ -57,13 +55,13 @@ function buildChart(data) {
 
   const bounds = svg.append("g");
 
-  bounds.attr("width", dimensions.width).attr("height", dimensions.height);
+  bounds.attr("width", chartWidth).attr("height", chartHeight);
 
   // left icon circle
   bounds
     .append("circle")
     .attr("cx", iconContainerRadius)
-    .attr("cy", dimensions.height / 2)
+    .attr("cy", chartHeight / 2)
     .attr("r", iconContainerRadius)
     .attr("fill", "#f7f7f7")
     .attr("stroke", "#cdcdcd")
@@ -72,21 +70,21 @@ function buildChart(data) {
   bounds
     .append("circle")
     .attr("cx", iconContainerRadius)
-    .attr("cy", dimensions.height / 2)
+    .attr("cy", chartHeight / 2)
     .attr("r", iconRadius)
     .attr("fill", "url(#imageOne)")
     .attr("stroke", "#e5e5e5")
     .attr("stroke-width", 1);
 
   // left icon circle nodes
-  const originX = 67;
-  const originY = dimensions.height / 2 + 7;
+  const originX = iconContainerRadius + nodeRadius;
+  const originY = chartHeight / 2 + nodeRadius;
   const leftCircleRadius = iconContainerRadius;
 
   const leftNodeOriginX = originX + leftCircleRadius * Math.sin(0);
   const leftNodeOriginY = originY - leftCircleRadius * Math.cos(0);
 
-  const leftNodeWidth = 12;
+  const leftNodeWidth = nodeRadius * 2;
 
   bounds
     .selectAll(".left-node")
@@ -96,7 +94,7 @@ function buildChart(data) {
     .attr("class", "left-node")
     .attr("cx", leftNodeOriginX - leftNodeWidth / 2)
     .attr("cy", leftNodeOriginY - leftNodeWidth / 2)
-    .attr("r", 6)
+    .attr("r", nodeRadius)
     .attr("width", leftNodeWidth)
     .attr("height", leftNodeWidth)
     .attr("fill", "#cdcdcd")
@@ -107,8 +105,8 @@ function buildChart(data) {
   // right icon circle
   bounds
     .append("circle")
-    .attr("cx", dimensions.width - iconContainerRadius)
-    .attr("cy", dimensions.height / 2)
+    .attr("cx", chartWidth - iconContainerRadius)
+    .attr("cy", chartHeight / 2)
     .attr("r", iconContainerRadius)
     .attr("fill", "#f7f7f7")
     .attr("stroke", "#cdcdcd")
@@ -116,8 +114,8 @@ function buildChart(data) {
 
   bounds
     .append("circle")
-    .attr("cx", dimensions.width - iconContainerRadius)
-    .attr("cy", dimensions.height / 2)
+    .attr("cx", chartWidth - iconContainerRadius)
+    .attr("cy", chartHeight / 2)
     .attr("r", iconRadius)
     .attr("fill", "url(#imageTwo)")
     .attr("stroke", "#e5e5e5")
