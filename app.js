@@ -101,9 +101,11 @@ function buildChart(data) {
     .attr("height", nodeWidth)
     .attr("fill", "#cdcdcd")
     .attr("transform", (d, i) => {
-      return `rotate(${0 + i * nodeRadius * 4}, ${leftOriginX - nodeRadius}, ${
-        leftOriginY - nodeRadius
-      })`;
+      const angle = 102 - nodeWidth * data.groups.length;
+
+      return `rotate(${angle + i * nodeRadius * 4}, ${
+        leftOriginX - nodeRadius
+      }, ${leftOriginY - nodeRadius})`;
     });
 
   // right icon circle
