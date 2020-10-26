@@ -79,8 +79,8 @@ function buildChart(data) {
     .attr("stroke-width", 1);
 
   // left icon circle nodes
-  const originX = 53;
-  const originY = dimensions.height / 2 + 8;
+  const originX = 67;
+  const originY = dimensions.height / 2 + 7;
   const leftCircleRadius = iconContainerRadius;
 
   const leftNodeOriginX = originX + leftCircleRadius * Math.sin(0);
