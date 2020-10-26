@@ -75,11 +75,11 @@ function buildChart(data) {
 
   // left icon circle nodes
   const originX = 53;
-  const originY = dimensions.height / 2;
-  const outerCircleRadius = 60;
+  const originY = dimensions.height / 2 + 8;
+  const leftCircleRadius = 60;
 
-  const leftNodeOriginX = originX + outerCircleRadius * Math.sin(0);
-  const leftNodeOriginY = originY - outerCircleRadius * Math.cos(0);
+  const leftNodeOriginX = originX + leftCircleRadius * Math.sin(0);
+  const leftNodeOriginY = originY - leftCircleRadius * Math.cos(0);
 
   const leftNodeWidth = 12;
 
