@@ -108,6 +108,29 @@ function buildChart(data) {
       }, ${leftOriginY - nodeRadius})`;
     });
 
+  // left node connecting lines
+  bounds
+    .selectAll(".node-line")
+    .data(data.groups)
+    .enter()
+    .append("path")
+    .attr("class", "node-line")
+    .attr(
+      "d",
+      `M ${iconContainerRadius * 2} ${chartHeight / 2} L ${
+        iconContainerRadius * 4
+      } ${chartHeight / 2}`
+    )
+    .attr("stroke", "#cdcdcd")
+    .attr("stroke-width", "1")
+    .attr("transform", (d, i) => {
+      const angle = 12 - nodeWidth * data.groups.length;
+
+      return `rotate(${angle + i * nodeRadius * 4}, ${
+        leftOriginX - nodeRadius
+      }, ${leftOriginY - nodeRadius})`;
+    });
+
   // right icon circle
   bounds
     .append("circle")
