@@ -26,6 +26,11 @@ function buildChart(data) {
     height: 600,
   };
 
+  const iconWidth = 70;
+  const iconHeight = 70;
+  const iconContainerRadius = 60;
+  const iconRadius = 35;
+
   svg.attr("width", dimensions.width).attr("height", dimensions.height);
 
   const defs = svg.append("defs");
@@ -37,8 +42,8 @@ function buildChart(data) {
     .attr("height", 1)
     .append("svg:image")
     .attr("xlink:href", data.packageOne.iconPath)
-    .attr("width", 70)
-    .attr("height", 70);
+    .attr("width", iconWidth)
+    .attr("height", iconHeight);
 
   defs
     .append("pattern")
@@ -47,8 +52,8 @@ function buildChart(data) {
     .attr("height", 1)
     .append("svg:image")
     .attr("xlink:href", data.packageTwo.iconPath)
-    .attr("width", 70)
-    .attr("height", 70);
+    .attr("width", iconWidth)
+    .attr("height", iconHeight);
 
   const bounds = svg.append("g");
 
@@ -57,18 +62,18 @@ function buildChart(data) {
   // left icon circle
   bounds
     .append("circle")
-    .attr("cx", 60)
+    .attr("cx", iconContainerRadius)
     .attr("cy", dimensions.height / 2)
-    .attr("r", 60)
+    .attr("r", iconContainerRadius)
     .attr("fill", "#f7f7f7")
     .attr("stroke", "#cdcdcd")
     .attr("stroke-width", 1);
 
   bounds
     .append("circle")
-    .attr("cx", 60)
+    .attr("cx", iconContainerRadius)
     .attr("cy", dimensions.height / 2)
-    .attr("r", 35)
+    .attr("r", iconRadius)
     .attr("fill", "url(#imageOne)")
     .attr("stroke", "#e5e5e5")
     .attr("stroke-width", 1);
@@ -76,7 +81,7 @@ function buildChart(data) {
   // left icon circle nodes
   const originX = 53;
   const originY = dimensions.height / 2 + 8;
-  const leftCircleRadius = 60;
+  const leftCircleRadius = iconContainerRadius;
 
   const leftNodeOriginX = originX + leftCircleRadius * Math.sin(0);
   const leftNodeOriginY = originY - leftCircleRadius * Math.cos(0);
@@ -102,32 +107,21 @@ function buildChart(data) {
   // right icon circle
   bounds
     .append("circle")
-    .attr("cx", dimensions.width - 60)
+    .attr("cx", dimensions.width - iconContainerRadius)
     .attr("cy", dimensions.height / 2)
-    .attr("r", 60)
+    .attr("r", iconContainerRadius)
     .attr("fill", "#f7f7f7")
     .attr("stroke", "#cdcdcd")
     .attr("stroke-width", 1);
 
   bounds
     .append("circle")
-    .attr("cx", dimensions.width - 60)
+    .attr("cx", dimensions.width - iconContainerRadius)
     .attr("cy", dimensions.height / 2)
-    .attr("r", 35)
+    .attr("r", iconRadius)
     .attr("fill", "url(#imageTwo)")
     .attr("stroke", "#e5e5e5")
     .attr("stroke-width", 1);
-
-  bounds
-    .selectAll(".right-node")
-    .data(data.groups)
-    .enter()
-    .append("circle")
-    .attr("class", "node")
-    .attr("cx", dimensions.width - 60 - 59)
-    .attr("cy", dimensions.height / 2)
-    .attr("r", 6)
-    .attr("fill", "#cdcdcd");
 }
 
 buildChart(data);
