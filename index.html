@@ -6,92 +6,94 @@
   <title>Integration chart</title>
   <link rel="stylesheet" href="https://assets.ubuntu.com/v1/vanilla-framework-version-2.19.1.min.css" />
   <link rel="stylesheet" href="./style.css">
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/6.2.0/d3.min.js" integrity="sha512-C2RveGuPIWqkaLAluvoxyiaN1XYNe5ss11urhZWZYBUA9Ydgj+hfGKPcxCzTwut1/fmjEZR7Ac35f2aycT8Ogw==" crossorigin="anonymous"></script> -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-selection/1.2.0/d3-selection.min.js" integrity="sha512-P/PLNIojUNrUq2g5Q3NX8epp5X6KZmNvWV2pDGU+ZiU96YlqFhIrG0pkSZ/qgruT7uJ2Ok/vFN7/7brl4Y7ipw==" crossorigin="anonymous"></script>
-  <!-- <script src="./desktop-chart.js" defer></script> -->
-  <script src="./mobile-chart.js" defer></script>
+  <script src="./desktop-chart.js" defer></script>
+  <!-- <script src="./mobile-chart.js" defer></script> -->
 </head>
 <body>
-  <div class="u-fixed-width" style="margin-top: 3rem;">
-    <h4>1/2 integration types</h4>
-  </div>
+  <div class="u-hide">
+    <div class="u-fixed-width">
+      <h4>1/2 integration types</h4>
+    </div>
 
-  <div class="row">
-    <div class="col-4 p-card">
-      <div class="integration-chart">
-        <div class="integration-chart__inner u-align--center">
-          <h5 class="u-no-max-width"><strong>openstack-dashboard</strong></h5>
+    <div class="row">
+      <div class="col-4 p-card">
+        <div class="integration-chart">
+          <div class="integration-chart__inner u-align--center">
+            <h5 class="u-no-max-width"><strong>openstack-dashboard</strong></h5>
 
-          <div class="integration-chart__icon-wrapper integration-chart__icon-wrapper--top">
-            <img class="integration-chart__icon" src="https://api.jujucharms.com/charmstore/v5/openstack-dashboard/icon.svg" alt="" width="56" height="56" />
+            <div class="integration-chart__icon-wrapper integration-chart__icon-wrapper--top">
+              <img class="integration-chart__icon" src="https://api.jujucharms.com/charmstore/v5/openstack-dashboard/icon.svg" alt="" width="56" height="56" />
+            </div>
+
+            <ul class="integration-chart__list">
+              <li class="integration-chart__list-item">websso-trusted-dashboard</li>
+              <li class="integration-chart__list-item">websso-trusted-dashboard</li>
+              <li class="integration-chart__list-item">websso-trusted-dashboard</li>
+            </ul>
+
+            <div class="integration-chart__icon-wrapper integration-chart__icon-wrapper--bottom">
+              <img class="integration-chart__icon" src="https://api.jujucharms.com/charmstore/v5/keystone-ldap/icon.svg" alt="" width="56" height="56" />
+            </div>
+
+            <h5><a href="https://example.com">keystone</a></h5>
           </div>
+        </div>
+      </div>
 
-          <ul class="integration-chart__list">
-            <li class="integration-chart__list-item">websso-trusted-dashboard</li>
-            <li class="integration-chart__list-item">websso-trusted-dashboard</li>
-            <li class="integration-chart__list-item">websso-trusted-dashboard</li>
-          </ul>
+      <div class="col-4 p-card">
+        <div class="integration-chart">
+          <div class="integration-chart__inner u-align--center">
+            <h5 class="u-no-max-width"><strong>openstack-dashboard</strong></h5>
 
-          <div class="integration-chart__icon-wrapper integration-chart__icon-wrapper--bottom">
-            <img class="integration-chart__icon" src="https://api.jujucharms.com/charmstore/v5/keystone-ldap/icon.svg" alt="" width="56" height="56" />
+            <div class="integration-chart__icon-wrapper integration-chart__icon-wrapper--top">
+              <img class="integration-chart__icon" src="https://api.jujucharms.com/charmstore/v5/openstack-dashboard/icon.svg" alt="" width="56" height="56" />
+            </div>
+
+            <ul class="integration-chart__list">
+              <li class="integration-chart__list-item">websso-trusted-dashboard</li>
+              <li class="integration-chart__list-item">websso-trusted-dashboard</li>
+              <li class="integration-chart__list-item">websso-trusted-dashboard</li>
+            </ul>
+
+            <div class="integration-chart__icon-wrapper integration-chart__icon-wrapper--bottom">
+              <img class="integration-chart__icon" src="https://api.jujucharms.com/charmstore/v5/keystone-ldap/icon.svg" alt="" width="56" height="56" />
+            </div>
+
+            <h5><a href="https://example.com">keystone</a></h5>
           </div>
+        </div>
+      </div>
 
-          <h5><a href="https://example.com">keystone</a></h5>
+      <div class="col-4 p-card">
+        <div class="integration-chart">
+          <div class="integration-chart__inner u-align--center">
+            <h5 class="u-no-max-width"><strong>openstack-dashboard</strong></h5>
+
+            <div class="integration-chart__icon-wrapper integration-chart__icon-wrapper--top">
+              <img class="integration-chart__icon" src="https://api.jujucharms.com/charmstore/v5/openstack-dashboard/icon.svg" alt="" width="56" height="56" />
+            </div>
+
+            <ul class="integration-chart__list">
+              <li class="integration-chart__list-item">websso-trusted-dashboard</li>
+              <li class="integration-chart__list-item">websso-trusted-dashboard</li>
+              <li class="integration-chart__list-item">websso-trusted-dashboard</li>
+            </ul>
+
+            <div class="integration-chart__icon-wrapper integration-chart__icon-wrapper--bottom">
+              <img class="integration-chart__icon" src="https://api.jujucharms.com/charmstore/v5/keystone-ldap/icon.svg" alt="" width="56" height="56" />
+            </div>
+
+            <h5><a href="https://example.com">keystone</a></h5>
+          </div>
         </div>
       </div>
     </div>
 
-    <div class="col-4 p-card">
-      <div class="integration-chart">
-        <div class="integration-chart__inner u-align--center">
-          <h5 class="u-no-max-width"><strong>openstack-dashboard</strong></h5>
-
-          <div class="integration-chart__icon-wrapper integration-chart__icon-wrapper--top">
-            <img class="integration-chart__icon" src="https://api.jujucharms.com/charmstore/v5/openstack-dashboard/icon.svg" alt="" width="56" height="56" />
-          </div>
-
-          <ul class="integration-chart__list">
-            <li class="integration-chart__list-item">websso-trusted-dashboard</li>
-            <li class="integration-chart__list-item">websso-trusted-dashboard</li>
-            <li class="integration-chart__list-item">websso-trusted-dashboard</li>
-          </ul>
-
-          <div class="integration-chart__icon-wrapper integration-chart__icon-wrapper--bottom">
-            <img class="integration-chart__icon" src="https://api.jujucharms.com/charmstore/v5/keystone-ldap/icon.svg" alt="" width="56" height="56" />
-          </div>
-
-          <h5><a href="https://example.com">keystone</a></h5>
-        </div>
-      </div>
+    <div class="u-fixed-width">
+      <p class="u-align--center"><a href="https://example.com">Learn more about integrations</a></p>
     </div>
 
-    <div class="col-4 p-card">
-      <div class="integration-chart">
-        <div class="integration-chart__inner u-align--center">
-          <h5 class="u-no-max-width"><strong>openstack-dashboard</strong></h5>
-
-          <div class="integration-chart__icon-wrapper integration-chart__icon-wrapper--top">
-            <img class="integration-chart__icon" src="https://api.jujucharms.com/charmstore/v5/openstack-dashboard/icon.svg" alt="" width="56" height="56" />
-          </div>
-
-          <ul class="integration-chart__list">
-            <li class="integration-chart__list-item">websso-trusted-dashboard</li>
-            <li class="integration-chart__list-item">websso-trusted-dashboard</li>
-            <li class="integration-chart__list-item">websso-trusted-dashboard</li>
-          </ul>
-
-          <div class="integration-chart__icon-wrapper integration-chart__icon-wrapper--bottom">
-            <img class="integration-chart__icon" src="https://api.jujucharms.com/charmstore/v5/keystone-ldap/icon.svg" alt="" width="56" height="56" />
-          </div>
-
-          <h5><a href="https://example.com">keystone</a></h5>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="u-fixed-width">
-    <p class="u-align--center"><a href="https://example.com">Learn more about integrations</a></p>
   </div>
   <div class="u-fixed-width">
     <div id="wrapper"></div>
