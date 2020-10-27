@@ -1,0 +1,73 @@
+.integration-chart__icon-wrapper {
+  background-color: #f7f7f7;
+  border: 1px solid #cdcdcd;
+  border-radius: 50%;
+  height: 96px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+  position: relative;
+  width: 96px;
+}
+
+.integration-chart__icon-wrapper--top::before,
+.integration-chart__icon-wrapper--bottom::before {
+  background-color: #cdcdcd;
+  border-radius: 50%;
+  content: "";
+  height: 12px;
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%);
+  width: 12px;
+}
+
+.integration-chart__icon-wrapper--top::before {
+  bottom: -6px;
+}
+
+.integration-chart__icon-wrapper--bottom::before {
+  top: -6px;
+}
+
+.integration-chart__icon {
+  height: 56px;
+  max-width: 56px;
+  width: 56px;
+}
+
+.integration-chart__list {
+  list-style: none;
+  margin: 40px 0;
+  padding-left: 0;
+}
+
+.integration-chart__list-item {
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.integration-chart__list-item:last-child {
+  margin-bottom: 0;
+}
+
+.integration-chart__list-item::before {
+  background-color: #cdcdcd;
+  content: "";
+  height: 36px;
+  left: 50%;
+  position: absolute;
+  top: -40px;
+  width: 1px;
+}
+
+.integration-chart__list-item:last-child::after {
+  background-color: #cdcdcd;
+  bottom: -40px;
+  content: "";
+  height: 36px;
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%);
+  width: 1px;
+}
