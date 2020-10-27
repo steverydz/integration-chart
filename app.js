@@ -1,10 +1,10 @@
 const data = {
   groups: [
     ["websso-trusted-dashboard", "identity-service", "keystone"],
-    ["websso-trusted-dashboard", "identity-service", "keystone"],
-    ["websso-trusted-dashboard", "identity-service", "keystone"],
-    ["websso-trusted-dashboard", "identity-service", "keystone"],
-    ["websso-trusted-dashboard", "identity-service", "keystone"],
+    // ["websso-trusted-dashboard", "identity-service", "keystone"],
+    // ["websso-trusted-dashboard", "identity-service", "keystone"],
+    // ["websso-trusted-dashboard", "identity-service", "keystone"],
+    // ["websso-trusted-dashboard", "identity-service", "keystone"],
   ],
   packageOne: {
     name: "openstack-dashboard",
@@ -18,6 +18,7 @@ const data = {
 };
 
 function buildChart(data) {
+  // set dimensions
   const chartWidth = window.innerWidth * 0.8;
   const chartHeight = 600;
   const iconWidth = 70;
@@ -27,6 +28,7 @@ function buildChart(data) {
   const nodeRadius = 6;
   const nodeWidth = nodeRadius * 2;
 
+  // define chart wrapper
   const wrapper = d3.select("#wrapper");
   const svg = wrapper.append("svg");
 
@@ -36,6 +38,7 @@ function buildChart(data) {
     .attr("class", "integration-chart")
     .attr("style", "display: block; margin: 0 auto");
 
+  // setup icon images
   const defs = svg.append("defs");
 
   defs
@@ -58,8 +61,8 @@ function buildChart(data) {
     .attr("width", iconWidth)
     .attr("height", iconHeight);
 
+  // define chart bounds
   const bounds = svg.append("g");
-
   bounds.attr("width", chartWidth).attr("height", chartHeight);
 
   // left icon circle
@@ -108,7 +111,7 @@ function buildChart(data) {
       }, ${leftOriginY - nodeRadius})`;
     });
 
-  // left node connecting lines
+  // left node lines
   bounds
     .selectAll(".left-node-line")
     .data(data.groups)
@@ -178,7 +181,7 @@ function buildChart(data) {
       }, ${rightOriginY - nodeRadius})`;
     });
 
-  // right node connecting lines
+  // right node lines
   bounds
     .selectAll(".right-node-line")
     .data(data.groups)
@@ -192,7 +195,7 @@ function buildChart(data) {
       } ${chartHeight / 2}`
     )
     .attr("stroke", "#cdcdcd")
-    .attr("stroke-width", "1")
+    .attr("stroke-width", 1)
     .attr("transform", (d, i) => {
       const angle = 12 - nodeWidth * data.groups.length;
 
@@ -201,6 +204,7 @@ function buildChart(data) {
       }, ${rightOriginY - nodeRadius})`;
     });
 
+  // center block of the chart
   bounds
     .append("rect")
     .attr("width", chartWidth - iconContainerRadius * 5)
@@ -208,6 +212,86 @@ function buildChart(data) {
     .attr("x", iconContainerRadius * 2.5)
     .attr("y", 0)
     .attr("fill", "#ffffff");
+  // .attr("stroke", "#111111");
+
+  // connecting lines
+  bounds
+    .selectAll(".connecting-line")
+    .data(data.groups)
+    .enter()
+    .append("path")
+    .attr("class", "connecting-line")
+    .attr(
+      "d",
+      `M ${iconContainerRadius * 2 + 30} ${chartHeight / 2} L ${
+        chartWidth - iconContainerRadius * 2 - 30
+      } ${chartHeight / 2}`
+    )
+    .attr("stroke", "#cdcdcd")
+    .attr("stroke-width", "1")
+    .attr("transform", (d, i) => {
+      // const angle = 102 - nodeWidth * data.groups.length;
+
+      // return `translateY(-${angle + i * nodeRadius * 4}, ${
+      //   rightOriginX - nodeRadius
+      // }, ${rightOriginY - nodeRadius})`;
+      return `translate(0, 0)`;
+    });
+
+  // bounds
+  //   .append("path")
+  //   .attr(
+  //     "d",
+  //     `M ${iconContainerRadius * 2 + 30} ${chartHeight / 2} L ${
+  //       chartWidth - iconContainerRadius * 2 - 30
+  //     } ${chartHeight / 2}`
+  //   )
+  //   .attr("stroke", "#cdcdcd")
+  //   .attr("stroke-width", 1);
+
+  // bounds
+  //   .append("path")
+  //   .attr(
+  //     "d",
+  //     `M ${iconContainerRadius * 2 + 30} ${chartHeight / 2 - 40} L ${
+  //       chartWidth - iconContainerRadius * 2 - 30
+  //     } ${chartHeight / 2 - 40}`
+  //   )
+  //   .attr("stroke", "#cdcdcd")
+  //   .attr("stroke-width", 1);
+
+  // bounds
+  //   .append("path")
+  //   .attr(
+  //     "d",
+  //     `M ${iconContainerRadius * 2 + 30} ${chartHeight / 2 - 100} L ${
+  //       chartWidth - iconContainerRadius * 2 - 30
+  //     } ${chartHeight / 2 - 100}`
+  //   )
+  //   .attr("stroke", "#cdcdcd")
+  //   .attr("stroke-width", 1);
+
+  // bounds
+  //   .append("path")
+  //   .attr(
+  //     "d",
+  //     `M ${iconContainerRadius * 2 + 30} ${chartHeight / 2 + 40} L ${
+  //       chartWidth - iconContainerRadius * 2 - 30
+  //     } ${chartHeight / 2 + 40}`
+  //   )
+  //   .attr("stroke", "#cdcdcd")
+  //   .attr("stroke-width", 1);
+
+  // bounds
+  //   .append("path")
+  //   .attr(
+  //     "d",
+  //     `M ${iconContainerRadius * 2 + 30} ${chartHeight / 2 + 100} L ${
+  //       chartWidth - iconContainerRadius * 2 - 30
+  //     } ${chartHeight / 2 + 100}`
+  //   )
+  //   .attr("stroke", "#cdcdcd")
+  //   .attr("stroke-width", 1);
 }
 
 buildChart(data);
