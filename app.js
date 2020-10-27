@@ -212,7 +212,6 @@ function buildChart(data) {
     .attr("x", iconContainerRadius * 2.5)
     .attr("y", 0)
     .attr("fill", "#ffffff");
-  // .attr("stroke", "#111111");
 
   // connecting lines
   bounds
@@ -230,68 +229,8 @@ function buildChart(data) {
     .attr("stroke", "#cdcdcd")
     .attr("stroke-width", "1")
     .attr("transform", (d, i) => {
-      // const angle = 102 - nodeWidth * data.groups.length;
-
-      // return `translateY(-${angle + i * nodeRadius * 4}, ${
-      //   rightOriginX - nodeRadius
-      // }, ${rightOriginY - nodeRadius})`;
       return `translate(0, 0)`;
     });
-
-  // bounds
-  //   .append("path")
-  //   .attr(
-  //     "d",
-  //     `M ${iconContainerRadius * 2 + 30} ${chartHeight / 2} L ${
-  //       chartWidth - iconContainerRadius * 2 - 30
-  //     } ${chartHeight / 2}`
-  //   )
-  //   .attr("stroke", "#cdcdcd")
-  //   .attr("stroke-width", 1);
-
-  // bounds
-  //   .append("path")
-  //   .attr(
-  //     "d",
-  //     `M ${iconContainerRadius * 2 + 30} ${chartHeight / 2 - 40} L ${
-  //       chartWidth - iconContainerRadius * 2 - 30
-  //     } ${chartHeight / 2 - 40}`
-  //   )
-  //   .attr("stroke", "#cdcdcd")
-  //   .attr("stroke-width", 1);
-
-  // bounds
-  //   .append("path")
-  //   .attr(
-  //     "d",
-  //     `M ${iconContainerRadius * 2 + 30} ${chartHeight / 2 - 100} L ${
-  //       chartWidth - iconContainerRadius * 2 - 30
-  //     } ${chartHeight / 2 - 100}`
-  //   )
-  //   .attr("stroke", "#cdcdcd")
-  //   .attr("stroke-width", 1);
-
-  // bounds
-  //   .append("path")
-  //   .attr(
-  //     "d",
-  //     `M ${iconContainerRadius * 2 + 30} ${chartHeight / 2 + 40} L ${
-  //       chartWidth - iconContainerRadius * 2 - 30
-  //     } ${chartHeight / 2 + 40}`
-  //   )
-  //   .attr("stroke", "#cdcdcd")
-  //   .attr("stroke-width", 1);
-
-  // bounds
-  //   .append("path")
-  //   .attr(
-  //     "d",
-  //     `M ${iconContainerRadius * 2 + 30} ${chartHeight / 2 + 100} L ${
-  //       chartWidth - iconContainerRadius * 2 - 30
-  //     } ${chartHeight / 2 + 100}`
-  //   )
-  //   .attr("stroke", "#cdcdcd")
-  //   .attr("stroke-width", 1);
 }
 
 buildChart(data);
